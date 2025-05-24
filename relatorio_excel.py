@@ -6,7 +6,9 @@ def transformar_em_excel(valores):
     if os.path.exists(name_file):
         df_excel = pd.read_excel(name_file)
         print('file open sucessefully!')
-        df_excel.to_excel(name_file, index=False)
+        # new_date = pd.DataFrame(valores)
+        new_df = pd.concat([df_excel, df], ignore_index=True)
+        new_df.to_excel(name_file, index=False)
     else:
         df.to_excel(name_file, index=False)
 
